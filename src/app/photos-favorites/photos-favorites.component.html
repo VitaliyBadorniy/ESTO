@@ -1,1 +1,16 @@
-<p>photos-favorites works!</p>
+
+  <div class="card-container" *ngIf="favouritePhotosAsync$ | async as photo">
+    <ng-container *ngIf="photo.length; else empty">
+      <div class="card" *ngFor='let photo of favouritePhotosAsync$ | async '>
+        <img mat-card-image
+             (click)="openFavouritePhoto(photo)"
+             src="{{photo.photoURL}}"
+             onerror="this.onerror=null; this.src='assets/img/mario-128x128-icon_245367.png';"
+             alt="Photo">
+      </div>
+    </ng-container>
+    <ng-template #empty>
+      <h1>Unfortunately, no photos were found.</h1>
+    </ng-template>
+  </div>
+

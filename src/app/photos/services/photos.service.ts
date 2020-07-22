@@ -26,15 +26,20 @@ export class PhotosService {
         photoURL: faker.image.avatar(),
         isFavourite: false
       };
-      this.setBufferPhotos(generatedPhoto);
+      this.setBufferPhoto(generatedPhoto);
     }, randomDuration);
   }
 
   isBufferPhotosLength(): boolean {
     return !!this.bufferPhotos.length;
   }
-  setBufferPhotos(photo: PhotoModel): void {
+  setBufferPhoto(photo: PhotoModel): void {
     this.bufferPhotos.push(photo);
+    this.photoSource.next(this.bufferPhotos);
+  }
+
+  setBufferPhotos(photos: PhotoModel[]): void {
+    this.bufferPhotos = photos;
     this.photoSource.next(this.bufferPhotos);
   }
 

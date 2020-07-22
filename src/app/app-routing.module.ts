@@ -4,11 +4,12 @@ import {ErrorPageComponent} from './shared/components/error-page/error-page.comp
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {PhotosComponent} from './photos/photos.component';
 import {PhotoDetailComponent} from './photo-detail/photo-detail.component';
+import {PhotosFavoritesComponent} from './photos-favorites/photos-favorites.component';
 
 const routes: Routes = [
   {path: '', component: DashboardComponent, children: [
       {path: '', component: PhotosComponent},
-      {path: 'favorites', component: PhotoDetailComponent},
+      {path: 'favorites', component: PhotosFavoritesComponent},
       {path: 'photos/:id', component: PhotoDetailComponent}
    ]
   },

@@ -1,7 +1,7 @@
 <div class="card-container">
-  <div class="card" *ngFor='let photo of photosAsync$ | async'>
+  <div class="card" [ngStyle]="{'background-color': photo.isFavourite ? '#e91e63' : '#fafafa'}" *ngFor='let photo of photosAsync$ | async'>
     <img mat-card-image
-         (click)="openSnackBar()"
+         (click)="setFavouritePhoto(photo)"
          src="{{photo.photoURL}}"
          onerror="this.onerror=null; this.src='assets/img/mario-128x128-icon_245367.png';"
          alt="Photo">
