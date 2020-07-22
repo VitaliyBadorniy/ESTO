@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {PhotosService} from './services/photos.service';
 import {Observable, zip} from 'rxjs';
 import {PhotoModel} from './models/photo.model';
@@ -21,6 +21,7 @@ export class PhotosComponent implements OnInit {
   constructor(private photosService: PhotosService,
               private snackBar: MatSnackBar) {
   }
+
 
   ngOnInit(): void {
     this.photosAsync$ = this.photosService.photos$;

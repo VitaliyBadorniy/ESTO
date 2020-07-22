@@ -1,4 +1,6 @@
 import {Component, HostListener, OnInit} from '@angular/core';
+import {fromEvent} from 'rxjs';
+import {PhotosService} from '../photos/services/photos.service';
 
 
 @Component({
@@ -7,11 +9,17 @@ import {Component, HostListener, OnInit} from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-
+  constructor(private photosService: PhotosService,) {
   }
 
+  ngOnInit(): void {
+  }
+
+  onScroll($event: Event): void {
+    if (document.body.offsetHeight + ($event.target as Element).scrollTop >= ($event.target as Element).scrollHeight) {
+      for (let i = 0; i < 9; i++) {
+        this.photosService.getPhoto();
+      }
+    }
+  };
 }
