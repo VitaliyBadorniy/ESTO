@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import * as faker from 'faker/locale/en';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

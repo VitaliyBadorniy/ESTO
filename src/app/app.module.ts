@@ -8,13 +8,15 @@ import {SharedModule} from './shared/shared.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PhotosComponent } from './photos/photos.component';
 import { PhotoDetailComponent } from './photo-detail/photo-detail.component';
+import { PhotosFavoritesComponent } from './photos-favorites/photos-favorites.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     PhotosComponent,
-    PhotoDetailComponent
+    PhotoDetailComponent,
+    PhotosFavoritesComponent
   ],
   imports: [
     BrowserModule,

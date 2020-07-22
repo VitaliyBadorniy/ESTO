@@ -1,0 +1,40 @@
+.content {
+  display: flex;
+  margin: 82px auto 32px;
+  padding: 0 16px;
+  max-width: 960px;
+  height: 556px;
+  overflow-y: auto;
+  background-color: transparent;
+  flex-direction: column;
+  align-items: center;
+}
+
+.toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background-color: #e0e0e0;
+  color: #524c49;
+  font-weight: 600;
+}
+
+.menu-button {
+  font-size: 0.8em;
+  line-height: 38px;
+  width: 112px;
+  height: 40px;
+}
+
+.spacer {
+  flex: 1;
+}
+
+
+.router-link-choose  {
+  color: #e91e63;
+}

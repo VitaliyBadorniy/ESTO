@@ -1,1 +1,23 @@
-<p>dashboard works!</p>
+
+<mat-toolbar class="mat-elevation-z3 toolbar">
+  <mat-toolbar-row>
+    <div class="spacer"></div>
+    <a  [routerLinkActive]="'router-link-choose'"
+        [routerLink]="['/']"
+        [routerLinkActiveOptions]="{exact: true}"
+        class="menu-button"
+        mat-stroked-button
+        color="primary">Photos</a>
+    <div class="spacer"></div>
+    <a  [routerLinkActive]="'router-link-choose'"
+        [routerLink]="['/favorites']"
+        class="menu-button"
+        mat-stroked-button
+        color="primary">Favourite</a>
+    <div class="spacer"></div>
+  </mat-toolbar-row>
+</mat-toolbar>
+<main class="content">
+  <router-outlet></router-outlet>
+</main>
+
