@@ -51,7 +51,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
    ![alt text](https://raw.githubusercontent.com/VitaliyBadorniy/ESTO/prod/src/assets/img/taskPage1.png)
    
 #### Detail view (single photo page)
-   ![alt text](https://raw.githubusercontent.com/VitaliyBadorniy/ESTO/prod/src/assets/img/taskPage1.png)
+   ![alt text](https://raw.githubusercontent.com/VitaliyBadorniy/ESTO/prod/src/assets/img/taskPage2.png)
    
 #### General requirements
    * Use Angular Router module

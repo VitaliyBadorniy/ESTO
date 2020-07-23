@@ -1,6 +1,12 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { DashboardComponent } from './dashboard.component';
+import {DashboardComponent} from './dashboard.component';
+import {PhotosService} from '../photos/services/photos.service';
+import {StorageService} from '../shared/services/storage.service';
+import {LoadingService} from '../shared/services/loading.service';
+import {RouterTestingModule} from '@angular/router/testing';
+import {SharedModule} from '../shared/shared.module';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -8,7 +14,16 @@ describe('DashboardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DashboardComponent ]
+      imports: [
+        RouterTestingModule,
+        SharedModule,
+        NoopAnimationsModule
+      ],
+      declarations: [ DashboardComponent ],
+      providers:  [ PhotosService,
+        StorageService,
+        LoadingService
+      ]
     })
     .compileComponents();
   }));

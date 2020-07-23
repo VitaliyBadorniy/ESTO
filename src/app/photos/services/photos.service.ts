@@ -4,7 +4,7 @@ import {BehaviorSubject} from 'rxjs';
 import {PhotoModel} from '../models/photo.model';
 import {StorageService} from '../../shared/services/storage.service';
 import {LoadingService} from '../../shared/services/loading.service';
-import {getRandomDelay} from '../../shared/functions/randomDebounce';
+import {getRandomDelay} from '../../shared/functions/randomDelay';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +15,7 @@ export class PhotosService {
   readonly maxRangeDelay  = 300;
   readonly minScrollValue = 10;
   private bufferPhotos: PhotoModel[] = [];
+
   private photoSource = new BehaviorSubject<PhotoModel[]>([]);
   photos$ = this.photoSource.asObservable();
 

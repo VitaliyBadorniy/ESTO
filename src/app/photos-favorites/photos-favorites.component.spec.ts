@@ -1,6 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PhotosFavoritesComponent } from './photos-favorites.component';
+import {PhotosService} from '../photos/services/photos.service';
+import {StorageService} from '../shared/services/storage.service';
+import {LoadingService} from '../shared/services/loading.service';
+import {Router} from '@angular/router';
+import {RouterTestingModule} from '@angular/router/testing';
+import {SharedModule} from '../shared/shared.module';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 
 describe('PhotosFavoritesComponent', () => {
   let component: PhotosFavoritesComponent;
@@ -8,7 +15,17 @@ describe('PhotosFavoritesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PhotosFavoritesComponent ]
+      imports: [
+        RouterTestingModule,
+        SharedModule,
+        NoopAnimationsModule
+      ],
+      declarations: [ PhotosFavoritesComponent ],
+      providers:  [
+        PhotosService,
+        StorageService,
+        LoadingService
+      ]
     })
     .compileComponents();
   }));
