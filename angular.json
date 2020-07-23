@@ -17,7 +17,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "allowedCommonJsDependencies": ["faker"],
+            "allowedCommonJsDependencies": [
+              "faker"
+            ],
             "outputPath": "dist/ESTO",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -124,6 +126,10 @@
               "devServerTarget": "ESTO:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
         }
       }
     }
