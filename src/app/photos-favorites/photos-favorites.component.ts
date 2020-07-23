@@ -2,7 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {PhotoModel} from '../photos/models/photo.model';
 import {PhotosService} from '../photos/services/photos.service';
-import {filter, map} from 'rxjs/operators';
+import {map} from 'rxjs/operators';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-photos-favorites',
@@ -12,7 +13,8 @@ import {filter, map} from 'rxjs/operators';
 export class PhotosFavoritesComponent implements OnInit {
   favouritePhotosAsync$: Observable<PhotoModel[]>;
 
-  constructor(private photosService: PhotosService) {
+  constructor(private photosService: PhotosService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -22,6 +24,7 @@ export class PhotosFavoritesComponent implements OnInit {
   }
 
   openFavouritePhoto(photo: PhotoModel): void {
-    console.log(photo);
+    this.router.navigate(['/photos', photo.id]);
   }
+
 }
