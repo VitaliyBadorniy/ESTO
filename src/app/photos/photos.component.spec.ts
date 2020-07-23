@@ -7,12 +7,15 @@ import {LoadingService} from '../shared/services/loading.service';
 import {RouterTestingModule} from '@angular/router/testing';
 import {SharedModule} from '../shared/shared.module';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {PhotoModel} from './models/photo.model';
 
 describe('PhotosComponent', () => {
   let component: PhotosComponent;
   let fixture: ComponentFixture<PhotosComponent>;
-
+  let photosService: PhotosService;
   beforeEach(async(() => {
+    photosService =  new PhotosService(null, null);
+    component = new PhotosComponent(photosService, null);
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
@@ -38,4 +41,5 @@ describe('PhotosComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 });

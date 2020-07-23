@@ -7,6 +7,8 @@ import {LoadingService} from '../shared/services/loading.service';
 import {RouterTestingModule} from '@angular/router/testing';
 import {SharedModule} from '../shared/shared.module';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {By} from '@angular/platform-browser';
+import {RouterLinkWithHref} from '@angular/router';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -36,5 +38,10 @@ describe('DashboardComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+  it('it should have link to favorites page', () => {
+    const debugElements = fixture.debugElement.queryAll(By.directive(RouterLinkWithHref));
+    const index = debugElements.findIndex(element => element.properties[`href`] === '/favorites');
+    expect(index).toBeGreaterThan(-1);
   });
 });
