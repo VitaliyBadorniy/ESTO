@@ -9,12 +9,13 @@ import {SharedModule} from '../shared/shared.module';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {PhotoModel} from './models/photo.model';
 
+
 describe('PhotosComponent', () => {
   let component: PhotosComponent;
   let fixture: ComponentFixture<PhotosComponent>;
   let photosService: PhotosService;
   beforeEach(async(() => {
-    photosService =  new PhotosService(null, null);
+    photosService = new PhotosService(null, null);
     component = new PhotosComponent(photosService, null);
     TestBed.configureTestingModule({
       imports: [
@@ -22,14 +23,14 @@ describe('PhotosComponent', () => {
         SharedModule,
         NoopAnimationsModule
       ],
-      declarations: [ PhotosComponent ],
-      providers:  [ PhotosService,
-                    StorageService,
-                    LoadingService
+      declarations: [PhotosComponent],
+      providers: [PhotosService,
+        StorageService,
+        LoadingService
       ]
 
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -42,4 +43,10 @@ describe('PhotosComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('service should return photo model', async(() => {
+    const photo: PhotoModel = {id: 'dsdsdsd-sd4553s-dsfds', isFavourite: true, photoURL: ''};
+    photosService.setBufferPhoto(photo);
+    expect(photosService.getBufferPhotos().length).toBeGreaterThanOrEqual(1);
+
+  }));
 });

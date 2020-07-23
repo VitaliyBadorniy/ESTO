@@ -45,6 +45,9 @@ export class PhotosService {
     this.bufferPhotos.push(photo);
     this.photoSource.next(this.bufferPhotos);
   }
+  getBufferPhotos(): PhotoModel[] {
+   return  this.bufferPhotos;
+  }
 
   setBufferPhotos(photos: PhotoModel[]): void {
     this.bufferPhotos = photos;
@@ -63,7 +66,7 @@ export class PhotosService {
   }
 
   backupFavouritePhotos(): void {
-    const favouritePhotos = this.bufferPhotos.filter(photo => photo.isFavourite === true);
+    const favouritePhotos = this.getBufferPhotos().filter(photo => photo.isFavourite === true);
     if (this.storageService.hasKey('favourite_photos')) {
       this.storageService.remove('favourite_photos');
     }
