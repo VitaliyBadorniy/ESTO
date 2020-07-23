@@ -2,7 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {PhotosService} from './services/photos.service';
 import {Observable} from 'rxjs';
 import {PhotoModel} from './models/photo.model';
-import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition,} from '@angular/material/snack-bar';
+import {MatSnackBar,
+        MatSnackBarHorizontalPosition,
+        MatSnackBarVerticalPosition} from '@angular/material/snack-bar';
 
 
 @Component({
@@ -12,6 +14,7 @@ import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition,
 })
 export class PhotosComponent implements OnInit {
   photosAsync$: Observable<PhotoModel[]>;
+  readonly maxPhotoCount = 15;
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'bottom';
 
@@ -23,7 +26,7 @@ export class PhotosComponent implements OnInit {
     this.photosAsync$ = this.photosService.photos$;
 
     if (!this.photosService.isBufferPhotosEnoughLength()) {
-      for (let i = 0; i < 15; i++) {
+      for (let i = 0; i < this.maxPhotoCount; i++) {
         this.photosService.getPhoto();
       }
     }

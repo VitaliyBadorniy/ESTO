@@ -13,6 +13,9 @@
         [routerLink]="['/favorites']"
         class="menu-button"
         mat-stroked-button
+        [matBadge]="favouritePhotos.length > 100 ? '99' : favouritePhotos.length.toString()"
+        [matBadgeHidden]="favouritePhotos.length < 1"
+        matBadgePosition="below"
         color="primary">Favourite</a>
     <div class="spacer"></div>
   </mat-toolbar-row>

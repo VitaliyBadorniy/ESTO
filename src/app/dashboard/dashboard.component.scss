@@ -38,3 +38,12 @@
 .router-link-choose  {
   color: #e91e63;
 }
+
+/* Responsive Styles */
+@media screen and (max-width: 767px) {
+  .content {
+    height: 456px;
+  }
+}
+
+

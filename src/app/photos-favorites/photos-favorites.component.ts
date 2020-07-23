@@ -26,5 +26,4 @@ export class PhotosFavoritesComponent implements OnInit {
   openFavouritePhoto(photo: PhotoModel): void {
     this.router.navigate(['/photos', photo.id]);
   }
-
 }

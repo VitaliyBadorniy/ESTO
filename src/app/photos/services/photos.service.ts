@@ -1,18 +1,18 @@
 import {Injectable} from '@angular/core';
 import * as faker from 'faker/locale/en';
 import {BehaviorSubject} from 'rxjs';
-import {getRandomDebounce} from '../../shared/functions/randomDebounce';
 import {PhotoModel} from '../models/photo.model';
 import {StorageService} from '../../shared/services/storage.service';
 import {LoadingService} from '../../shared/services/loading.service';
+import {getRandomDelay} from '../../shared/functions/randomDebounce';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class PhotosService {
-  readonly minRangeDebounce = 200;
-  readonly maxRangeDebounce = 300;
+  readonly minRangeDelay  = 200;
+  readonly maxRangeDelay  = 300;
   readonly minScrollValue = 10;
   private bufferPhotos: PhotoModel[] = [];
   private photoSource = new BehaviorSubject<PhotoModel[]>([]);
@@ -24,7 +24,7 @@ export class PhotosService {
 
   getPhoto(): void {
     this.loadingService.setStatusLoading(true);
-    const randomDuration = getRandomDebounce(this.minRangeDebounce, this.maxRangeDebounce);
+    const randomDuration = getRandomDelay(this.minRangeDelay , this.maxRangeDelay);
     setTimeout(() => {
       const generatedPhoto = {
         id: faker.random.uuid(),
