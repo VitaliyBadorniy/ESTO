@@ -1,0 +1,26 @@
+.card {
+  max-width: 800px;
+  width: 100%;
+  height: 500px;
+}
+
+.card img {
+  height: 500px;
+  border-radius: initial;
+}
+
+.card-container .card:not(.highlight-card):hover {
+  transform: initial;
+  box-shadow: unset;
+}
+
+
+/* Responsive Styles */
+@media screen and (max-width: 767px) {
+  .card {
+    height: 250px;
+  }
+  .card img {
+    height: 260px;
+  }
+}

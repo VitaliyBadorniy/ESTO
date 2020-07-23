@@ -1,0 +1,58 @@
+.cursor-loading {
+  cursor: progress!important;
+}
+
+svg#rocket {
+  width: 80px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: auto;
+  z-index: 2;
+  margin-left: auto;
+  margin-right: auto;
+  -webkit-animation: spin 1s linear infinite;
+  -moz-animation: spin 1s linear infinite;
+  animation: spin 1s linear infinite;
+}
+
+svg#clouds {
+  position: fixed;
+  bottom: -224px;
+  left: -230px;
+  z-index: -1;
+  width: 1920px;
+}
+
+
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 767px) {
+  svg#clouds{
+    bottom: -320px;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  svg#rocket {
+    bottom: 16px;
+  }
+}

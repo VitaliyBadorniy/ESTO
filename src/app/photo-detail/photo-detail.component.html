@@ -1,0 +1,9 @@
+<div class="card-container">
+  <div class="card" *ngIf='photo'>
+    <img mat-card-image
+         src="{{photo.photoURL}}"
+         onerror="this.onerror=null; this.src='assets/img/mario-128x128-icon_245367.png';"
+         alt="Photo">
+  </div>
+  <button mat-stroked-button  (click)="removeFromFavorites(photo)">Remove from favorities</button>
+</div>
