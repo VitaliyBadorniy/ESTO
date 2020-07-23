@@ -24,24 +24,25 @@ export class PhotosComponent implements OnInit {
 
   ngOnInit(): void {
     this.photosAsync$ = this.photosService.photos$;
-
-    if (!this.photosService.isBufferPhotosEnoughLength()) {
-      for (let i = 0; i < this.maxPhotoCount; i++) {
-        this.photosService.getPhoto();
-      }
-    }
+    this.fetchPhotos();
   }
 
+ fetchPhotos(): void {
+   if (!this.photosService.isBufferPhotosEnoughLength()) {
+     for (let i = 0; i < this.maxPhotoCount; i++) {
+       this.photosService.getPhoto();
+     }
+   }
+ }
+
   setFavouritePhoto(photo: PhotoModel): void {
-    photo.isFavourite = true;
-    this.photosService.updateFavoritePhoto(photo);
-    this.snackBar.open('Added to favorites!!', 'End now', {
-      duration: 1000,
+    this.snackBar.open(photo.isFavourite ?
+      ' Hey! This photo already added to favorites!!' : 'Added to favorites!!', 'End now', {
+      duration: 2000,
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,
     });
+    photo.isFavourite = true;
+    this.photosService.updateFavoritePhoto(photo);
   }
-
-
-
 }

@@ -18,9 +18,9 @@ svg#rocket {
 
 svg#clouds {
   position: fixed;
-  bottom: -280px;
+  bottom: -224px;
   left: -230px;
-  z-index: 1;
+  z-index: -1;
   width: 1920px;
 }
 
@@ -47,7 +47,7 @@ svg#clouds {
 /* Responsive Styles */
 @media screen and (max-width: 767px) {
   svg#clouds{
-    bottom: -360px;
+    bottom: -320px;
   }
 }
 
