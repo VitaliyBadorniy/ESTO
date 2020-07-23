@@ -61,7 +61,6 @@ export class PhotosService {
     return newItem.id === this;
   }
 
-
   backupFavouritePhotos(): void {
     const favouritePhotos = this.bufferPhotos.filter(photo => photo.isFavourite === true);
     if (this.storageService.hasKey('favourite_photos')) {
@@ -69,5 +68,4 @@ export class PhotosService {
     }
     this.storageService.storeString('favourite_photos', JSON.stringify(favouritePhotos));
   }
-
 }
